@@ -282,23 +282,101 @@ SELECT
 #### Medium Level Questions
 
 1. Average danceability of tracks in each album
-   
+```sql
+	SELECT 
+		album,
+		avg(danceability) avg_danceability_album
+	FROM Spotify
+	GROUP BY 1
+	ORDER BY 2 DESC;
+```
 2. Top 5 tracks with the highest energy values
-   
+```sql
+	SELECT 
+		track,
+		energy_liveness
+	FROM Spotify
+	ORDER BY energy_liveness DESC
+	LIMIT 5;	
+```   
 3. Tracks along with views and likes where official_video = TRUE
- 
+```sql
+	SELECT 
+		track,
+		views,
+		likes,
+		official_video
+	FROM Spotify
+	WHERE
+		official_video = TRUE
+	ORDER BY 
+		views DESC,
+		likes DESC;
+``` 
 4. Total views of all tracks per album
- 
+```sql
+	SELECT 
+		album,
+		SUM(views) AS total_views
+	FROM Spotify
+	GROUP BY album
+	ORDER BY total_views DESC;
+``` 
 5. Track names streamed more on Spotify than YouTube
- 
+```sql
+	SELECT 
+		track,
+		stream,
+		most_played_on
+	FROM Spotify
+	WHERE
+		most_played_on = 'Spotify'
+	ORDER BY stream DESC;
+``` 
 6. Total Views and Likes by Platform
- 
+```sql
+	SELECT 
+		SUM(views) AS total_views,
+		 SUM(likes) AS total_likes,
+		 most_played_on	
+	FROM Spotify
+	GROUP BY most_played_on;
+``` 
 7. Songs with High Popularity and Low Acousticness
-
+```sql
+	SELECT 
+		track,
+		stream AS popu_track,
+		acousticness AS low_aco_track
+	FROM Spotify
+	WHERE
+		stream > (SELECT AVG(stream) FROM Spotify)  --- filter for above average popularity
+		AND
+		acousticness < (SELECT AVG(acousticness) FROM Spotify) --------filter for below average acousticness
+	ORDER BY 
+		stream DESC,
+		acousticness ASC;
+```
 8. Top 5 Most Lively Songs by Track
- 
+```sql
+	SELECT 
+		track,
+		liveness
+	FROM Spotify
+	ORDER BY liveness DESC
+	LIMIT 5;
+``` 
 9. Top 5 artists with the most songs
-   
+```sql
+	SELECT
+		artist,
+		COUNT(track) AS top_5_artist_songs
+	FROM Spotify
+	GROUP BY artist
+	ORDER BY top_5_artist_songs DESC
+	LIMIT 5;
+
+```   
 #### Advanced Level Questions
 
 1. Top 5 Artists by Total Stream Count for Official Videos
