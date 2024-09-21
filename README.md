@@ -98,36 +98,55 @@ CREATE TABLE Spotify (
 
 #### Easy Level Questions
 1. Top 5 Songs by Energy
+   ```sql
+SELECT track, energy FROM Spotify
+ORDER BY track DESC
+LIMIT 5;
+   ```
 
-2. Most Played Songs by Platform
-
-3. Duration and Popularity of Songs by Artist
-
-4. Average energy_liveness & Average liveness by each Track
-
-5. Songs with Highest Danceability and Acousticness
-
-6. Retrieve tracks with more than 1 billion streams
-
-7. List all albums along with respective artists
-
-8. Total number of comments for licensed tracks
-
-9. Tracks belonging to album type single
-
-10. Total number of tracks by each artist
-
-11. Total number of tracks in the dataset
-
-12. Distinct artists in the dataset
-
-13. Top 10 most popular songs
-
-14. Total number of albums in the dataset
-
-15. Tracks with duration greater than 5 minutes
-
-16. List all songs by a specific artist
+3. Most Played Songs by Platform
+  ```sql
+   ```
+4. Duration and Popularity of Songs by Artist
+  ```sql
+   ```
+5. Average energy_liveness & Average liveness by each Track
+  ```sql
+   ```
+6. Songs with Highest Danceability and Acousticness
+  ```sql
+   ```
+7. Retrieve tracks with more than 1 billion streams
+  ```sql
+   ```
+8. List all albums along with respective artists
+  ```sql
+   ```
+9. Total number of comments for licensed tracks
+  ```sql
+   ```
+10. Tracks belonging to album type single
+  ```sql
+   ```
+11. Total number of tracks by each artist
+  ```sql
+   ```
+12. Total number of tracks in the dataset
+  ```sql
+   ```
+13. Distinct artists in the dataset
+  ```sql
+   ```
+14. Top 10 most popular songs
+  ```sql
+   ```
+15. Total number of albums in the dataset
+  ```sql
+   ```
+16. Tracks with duration greater than 5 minutes
+  ```sql
+   ```
+17. List all songs by a specific artist
 
 #### Medium Level Questions
 
