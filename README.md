@@ -52,7 +52,7 @@ Optimize query performance using JOIN operations and CTEs.
 Music Recommendations: Build a recommendation system based on popularity and genre.
 Business Decision Support: Provide insights into optimizing song releases for record labels.
 
-Analysis
+### Analysis
 Easy Level Questions
 Top 5 Songs by Energy
 Most Played Songs by Platform
