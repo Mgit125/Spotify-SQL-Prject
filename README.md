@@ -6,7 +6,7 @@
 This project analyzes a publicly available Spotify dataset containing various attributes of tracks, albums, and artists. The aim is to derive insights related to artist popularity, song duration, audio features, and listener engagement through advanced SQL queries and data analysis techniques.
 
 ### Dataset Overview
-Source: Spotify Dataset on Kaggle
+Spotify Dataset on Kaggle : https://www.kaggle.com/datasets/sanjanchaudhari/spotify-dataset
 
 #### Key Features:
 Artist: Name of the artist.
