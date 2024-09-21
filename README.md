@@ -129,3 +129,12 @@ Business Decision Support: Provide insights into optimizing song releases for re
 
 ### Conclusion
 This structured approach allows for comprehensive analysis of the Spotify dataset, leading to meaningful insights into music trends, artist performance, and listener behavior. By leveraging SQL and visualization tools, this project aims to provide valuable recommendations for stakeholders in the music industry.
+
+
+### Author - Srinivas
+This project is a significant component of my portfolio, demonstrating my proficiency in SQL, which is essential for data analyst roles. It showcases my ability to write complex queries, manage and manipulate databases, and extract meaningful insights from data.
+
+### Contact
+If you have any questions, feedback, or if you're interested in discussing potential collaborations, please feel free to contact me. I'm eager to connect and explore opportunities to leverage data for strategic decision-making.
+
+
