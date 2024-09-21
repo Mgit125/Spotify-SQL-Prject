@@ -128,47 +128,157 @@ WHERE
 	max_view_rank =1;
 
 ```
-4. Duration and Popularity of Songs by Artist
-  ```sql
-   ```
-5. Average energy_liveness & Average liveness by each Track
-  ```sql
-   ```
-6. Songs with Highest Danceability and Acousticness
-  ```sql
-   ```
-7. Retrieve tracks with more than 1 billion streams
-  ```sql
-   ```
-8. List all albums along with respective artists
-  ```sql
-   ```
-9. Total number of comments for licensed tracks
-  ```sql
-   ```
-10. Tracks belonging to album type single
-  ```sql
-   ```
-11. Total number of tracks by each artist
-  ```sql
-   ```
-12. Total number of tracks in the dataset
-  ```sql
-   ```
-13. Distinct artists in the dataset
-  ```sql
-   ```
-14. Top 10 most popular songs
-  ```sql
-   ```
-15. Total number of albums in the dataset
-  ```sql
-   ```
-16. Tracks with duration greater than 5 minutes
-  ```sql
-   ```
-17. List all songs by a specific artist
+3. Duration and Popularity of Songs by Artist
+ ```sql
+								----------------- Using window function : ROW_NUMBER()				
 
+WITH POP_ARTIST_DURATION AS (
+	SELECT 
+		artist,
+		track,
+		duration_min,
+		stream,
+		ROW_NUMBER() OVER (PARTITION BY artist ORDER BY stream DESC) AS popu_artist_rank,
+		ROW_NUMBER() OVER (PARTITION BY artist ORDER BY duration_min DESC) AS dur_artist_rank
+	FROM Spotify
+)
+SELECT
+	artist,
+	track,
+	duration_min,
+	stream
+FROM POP_ARTIST_DURATION
+WHERE
+	popu_artist_rank = 1 OR dur_artist_rank =1
+ORDER BY duration_min DESC, stream DESC
+LIMIT 5;
+
+ ```
+4. Average energy_liveness & Average liveness by each Track
+```sql
+SELECT 
+    track,
+    AVG(energy_liveness) AS avg_energy_liveness,
+    AVG(liveness) AS avg_liveness
+FROM Spotify
+GROUP BY track
+ORDER BY avg_energy_liveness DESC, avg_liveness DESC
+LIMIT 10;
+```
+5. Songs with Highest Danceability and Acousticness
+```sql
+			---------------- Using window function
+WITH high_dan_aco AS (
+	SELECT 
+		track,
+		danceability,
+		acousticness,
+		ROW_NUMBER() OVER (ORDER BY danceability DESC) AS high_dan_rank,
+		ROW_NUMBER() OVER (ORDER BY acousticness DESC) AS high_aco_rank
+	FROM Spotify
+)
+SELECT 
+	track,
+	danceability,
+	acousticness	
+FROM high_dan_aco
+WHERE
+	high_dan_rank = 1 OR high_aco_rank =1;
+```
+6. Retrieve tracks with more than 1 billion streams
+```sql
+SELECT 
+	track,
+	stream
+FROM Spotify
+WHERE
+	stream > 1000000000
+ORDER BY stream DESC;
+```
+7. List all albums along with respective artists
+```sql
+SELECT 
+	album,
+	artist
+FROM Spotify;
+```
+8. Get the total number of comments for tracks where licensed = TRUE.
+```sql
+SELECT 
+		track,
+		SUM(comments) AS total_comments
+	FROM Spotify
+	WHERE
+		licensed = TRUE
+	GROUP BY 1
+	ORDER BY 2 DESC;
+```
+9. Find all tracks that belong to the album type single.
+```sql
+	SELECT 
+		track
+	FROM Spotify
+	WHERE
+		album_type = 'single';
+```
+
+10. Count the total number of tracks by each artist.
+```sql
+	SELECT 
+		artist,
+		COUNT(track) AS total_no_of_songs_artist
+	FROM Spotify
+	GROUP BY artist;
+```
+11. Total number of tracks in the dataset
+```sql
+	SELECT 
+		COUNT(track) 
+	FROM Spotify;
+```
+12. Distinct artists in the dataset
+```sql
+	SELECT 
+		DISTINCT(COUNT(artist)) 
+	FROM Spotify;
+
+```
+13. Top 10 most popular songs
+```sql
+	SELECT 
+		track,
+		stream
+	FROM Spotify
+	ORDER BY stream DESC
+	LIMIT 10;
+```
+14. Total number of albums in the dataset
+```sql
+	SELECT 
+	COUNT(album) AS total_albums
+	FROM Spotify
+```
+15. Tracks with duration greater than 5 minutes
+```sql
+	SELECT
+		track,
+		duration_min
+	FROM Spotify
+	WHERE
+		duration_min > 5
+	ORDER BY duration_min DESC;
+```
+16. List all songs by a specific artist
+```sql
+	SELECT
+		artist,
+		track
+	FROM Spotify
+	WHERE
+		artist = 'Gorillaz'
+	ORDER BY artist;
+
+```
 #### Medium Level Questions
 
 1. Average danceability of tracks in each album
