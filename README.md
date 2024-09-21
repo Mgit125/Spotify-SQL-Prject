@@ -56,53 +56,70 @@ Business Decision Support: Provide insights into optimizing song releases for re
 ### Analysis
 
 #### Easy Level Questions
-1.Top 5 Songs by Energy
+1. Top 5 Songs by Energy
 
-2.Most Played Songs by Platform
+2. Most Played Songs by Platform
 
-3.Duration and Popularity of Songs by Artist
+3. Duration and Popularity of Songs by Artist
 
-4.Average energy_liveness & Average liveness by each Track
+4. Average energy_liveness & Average liveness by each Track
 
-5.Songs with Highest Danceability and Acousticness
+5. Songs with Highest Danceability and Acousticness
 
-6.Retrieve tracks with more than 1 billion streams
+6. Retrieve tracks with more than 1 billion streams
 
-7.List all albums along with respective artists
+7. List all albums along with respective artists
 
-8.Total number of comments for licensed tracks
+8. Total number of comments for licensed tracks
 
-9.Tracks belonging to album type single
+9. Tracks belonging to album type single
 
-10.Total number of tracks by each artist
+10. Total number of tracks by each artist
 
-11.Total number of tracks in the dataset
+11. Total number of tracks in the dataset
 
-12.Distinct artists in the dataset
+12. Distinct artists in the dataset
 
-13.Top 10 most popular songs
+13. Top 10 most popular songs
 
-14.Total number of albums in the dataset
+14. Total number of albums in the dataset
 
-15.Tracks with duration greater than 5 minutes
+15. Tracks with duration greater than 5 minutes
 
-16.List all songs by a specific artist
+16. List all songs by a specific artist
+
 #### Medium Level Questions
-Average danceability of tracks in each album
-Top 5 tracks with the highest energy values
-Tracks along with views and likes where official_video = TRUE
-Total views of all tracks per album
-Track names streamed more on Spotify than YouTube
-Total Views and Likes by Platform
-Songs with High Popularity and Low Acousticness
-Top 5 Most Lively Songs by Track
-Top 5 artists with the most songs
+
+1. Average danceability of tracks in each album
+   
+2. Top 5 tracks with the highest energy values
+   
+3. Tracks along with views and likes where official_video = TRUE
+ 
+4. Total views of all tracks per album
+ 
+5. Track names streamed more on Spotify than YouTube
+ 
+6. Total Views and Likes by Platform
+ 
+7. Songs with High Popularity and Low Acousticness
+
+8. Top 5 Most Lively Songs by Track
+ 
+9. Top 5 artists with the most songs
+   
 #### Advanced Level Questions
-Top 5 Artists by Total Stream Count for Official Videos
-Songs with the Highest Difference Between Views and Likes
-Correlating Popularity (stream) and Danceability Across All Songs
-Most played tracks in specific channels (top 10)
-Cluster songs based on audio features (e.g., danceability, energy)
+
+1. Top 5 Artists by Total Stream Count for Official Videos
+
+2. Songs with the Highest Difference Between Views and Likes
+
+3. Correlating Popularity (stream) and Danceability Across All Songs
+
+4. Most played tracks in specific channels (top 10)
+
+5. Cluster songs based on audio features (e.g., danceability, energy)
+
 
 ### Conclusion
 This structured approach allows for comprehensive analysis of the Spotify dataset, leading to meaningful insights into music trends, artist performance, and listener behavior. By leveraging SQL and visualization tools, this project aims to provide valuable recommendations for stakeholders in the music industry.
