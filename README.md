@@ -10,11 +10,17 @@ Spotify Dataset on Kaggle : https://www.kaggle.com/datasets/sanjanchaudhari/spot
 
 #### Key Features:
 Artist: Name of the artist.
+
 Track: Name of the song.
+
 Album: Album containing the track.
+
 Duration_min: Length of the song in minutes.
+
 Danceability, Energy, Loudness: Various audio features.
+
 Stream, Views, Likes, Comments: Listener engagement metrics.
+
 
 ### Step-by-Step Process for Analyzing the Spotify Dataset
 #### 1. Data Understanding
