@@ -104,9 +104,30 @@ ORDER BY track DESC
 LIMIT 5;
 ```
 
-3. Most Played Songs by Platform
-  ```sql
-   ```
+2. Most Played Songs by Platform
+```sql
+	----------------- Using window function : ROW_NUMBER()	
+
+WITH RANKED_TRACKERS_PLATFORM_wise AS (
+
+	SELECT
+		track,
+		views,
+		most_played_on,
+		ROW_NUMBER() OVER ( PARTITION BY most_played_on ORDER BY views DESC) AS max_view_rank
+	FROM Spotify
+	WHERE 
+		most_played_on IN ('Spotify', 'Youtube')
+)
+SELECT
+	track,
+	views,
+	most_played_on
+FROM RANKED_TRACKERS_PLATFORM_wise
+WHERE 
+	max_view_rank =1;
+
+```
 4. Duration and Popularity of Songs by Artist
   ```sql
    ```
