@@ -380,15 +380,86 @@ SELECT
 #### Advanced Level Questions
 
 1. Top 5 Artists by Total Stream Count for Official Videos
-
+```sql
+	SELECT 
+		artist,
+		SUM(stream) AS total_stream
+	FROM Spotify
+	WHERE 
+		official_video = TRUE
+	GROUP BY artist
+	ORDER BY total_stream DESC
+	LIMIT 5;
+```
 2. Songs with the Highest Difference Between Views and Likes
-
+```sql
+	SELECT
+		track,
+		views,
+		likes,
+		(views - likes) AS difference
+	FROM spotify
+	ORDER BY 
+		difference DESC
+	LIMIT 10;
+```
 3. Correlating Popularity (stream) and Danceability Across All Songs
-
+```sql
+						-------	USING WINDOW() Function
+						-------- COrelation Formula
+	
+	WITH Corelation_stat AS (
+		SELECT 
+			COUNT(track) AS n,  ------- n
+			SUM(CAST(stream AS NUMERIC)) AS sum_stream, ----------- x
+			SUM(CAST(danceability AS NUMERIC)) AS sum_dan, ---------------y
+			SUM(CAST(stream AS NUMERIC) * CAST(danceability AS NUMERIC)) AS sum_stream_dan,  -------- x*y
+			SUM(CAST(stream AS NUMERIC) * CAST(stream AS NUMERIC)) AS sum_stream_sq,  ----------------------x*x
+			SUM(CAST(danceability AS NUMERIC) * CAST(danceability AS NUMERIC)) AS sum_dan_sq --------------------- y*y
+		FROM Spotify
+	)
+	SELECT 
+		(n * sum_stream_dan - sum_stream * sum_dan)/
+		SQRT((n * sum_stream_sq - sum_stream * sum_stream) * (n* sum_dan_sq - sum_dan * sum_dan)) AS corelation
+	FROM Corelation_stat
+	WHERE
+		n>1;
+		
+	-----------------------USING CORR() Function
+	SELECT 
+	    CORR(stream, danceability) AS correlation
+	FROM Spotify
+	WHERE 
+		stream IS NOT NULL 
+		AND 
+		danceability IS NOT NULL;
+```
 4. Most played tracks in specific channels (top 10)
-
+```sql
+	SELECT * FROM Spotify;
+	
+	SELECT 
+		channel,
+		COUNT(track) AS most_played_tracks
+	FROM Spotify
+	GROUP BY channel
+	ORDER BY most_played_tracks DESC
+	LIMIT 10;
+```
 5. Cluster songs based on audio features (e.g., danceability, energy)
+```sql
 
+	SELECT 
+		track,
+		danceability,
+		energy
+	FROM Spotify
+	WHERE 
+		danceability IS NOT NULL
+		AND
+		energy IS NOT NULL;
+
+```
 
 ### Conclusion
 This structured approach allows for comprehensive analysis of the Spotify dataset, leading to meaningful insights into music trends, artist performance, and listener behavior. By leveraging SQL and visualization tools, this project aims to provide valuable recommendations for stakeholders in the music industry.
