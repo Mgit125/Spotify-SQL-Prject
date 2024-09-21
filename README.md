@@ -57,20 +57,35 @@ Business Decision Support: Provide insights into optimizing song releases for re
 
 #### Easy Level Questions
 1.Top 5 Songs by Energy
+
 2.Most Played Songs by Platform
+
 3.Duration and Popularity of Songs by Artist
+
 4.Average energy_liveness & Average liveness by each Track
+
 5.Songs with Highest Danceability and Acousticness
+
 6.Retrieve tracks with more than 1 billion streams
+
 7.List all albums along with respective artists
+
 8.Total number of comments for licensed tracks
+
 9.Tracks belonging to album type single
+
 10.Total number of tracks by each artist
+
 11.Total number of tracks in the dataset
+
 12.Distinct artists in the dataset
+
 13.Top 10 most popular songs
+
 14.Total number of albums in the dataset
+
 15.Tracks with duration greater than 5 minutes
+
 16.List all songs by a specific artist
 #### Medium Level Questions
 Average danceability of tracks in each album
