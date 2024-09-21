@@ -98,11 +98,11 @@ CREATE TABLE Spotify (
 
 #### Easy Level Questions
 1. Top 5 Songs by Energy
-   ```sql
+```sql
 SELECT track, energy FROM Spotify
 ORDER BY track DESC
 LIMIT 5;
-   ```
+```
 
 3. Most Played Songs by Platform
   ```sql
