@@ -1,6 +1,6 @@
 
 # Analyzing Spotify Dataset Using SQL
-![logo]()
+![logo](https://github.com/Mgit125/Spotify-SQL-Prject/blob/main/Picture1.jpg)
 
 ### Project Overview
 This project analyzes a publicly available Spotify dataset containing various attributes of tracks, albums, and artists. The aim is to derive insights related to artist popularity, song duration, audio features, and listener engagement through advanced SQL queries and data analysis techniques.
